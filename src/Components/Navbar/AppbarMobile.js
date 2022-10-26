@@ -23,7 +23,7 @@ import UserRev from "./UserRev";
 import { Box, display } from "@mui/system";
 
 
-const Navbar = () => {
+const AppbarMobile = () => {
   const [value, setValue] = useState();
   return (
     <>
@@ -39,15 +39,16 @@ const Navbar = () => {
           marginTop:'0.15%',
           boxShadow:'2px 3px  5px greenyellow',
           // position:'relative'
-          
         }}
       >
         <Toolbar
         sx={{
-          // width:'98%',
-          display:'flex',
-          justifyContent:'center',
-          flexWrap:'wrap'
+            // bgcolor:'red',
+            width:'400',
+            display:'flex',
+            justifyContent:'space-around',
+
+
         }}>
         <NavLink
             to='/'
@@ -60,7 +61,11 @@ const Navbar = () => {
           sx={{
             fontSize:30,
             fontWeight:'bold',
-            color:'blueviolet'
+            color:'blueviolet',
+            display:'flex',
+            justifyContent:'center'
+
+
           }}
           
           >toDo</Typography>
@@ -68,7 +73,9 @@ const Navbar = () => {
           <List
           sx={{
             display:'flex',
-            marginLeft:'auto'
+            width:200,
+            // marginLeft:'auto'
+            justifyContent:'space-between'
             // flexDirection:'row-reverse',
             // justifyContent:'center'
 
@@ -120,4 +127,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default AppbarMobile;

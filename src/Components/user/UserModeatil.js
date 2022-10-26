@@ -6,10 +6,9 @@ import { NavLink } from 'react-router-dom'
 import { border, Box, height, textAlign} from '@mui/system'
 import { Button, Card, CardContent, CardMedia, Dialog, DialogActions, DialogContent, DialogTitle, TextField, Typography } from '@mui/material'
 import u6 from '../../Img/user/u6.svg'
-import sand from '../../Img/sand.jpg'
 
 
-const UserDetails = () => {
+const UserModetail = () => {
     const [individual,setUser] = useState([])
     const [tasks,setpendingTasks] = useState([])
     const [taskId,setTaskId] = useState({
@@ -36,11 +35,7 @@ const UserDetails = () => {
             setUser(res.data.data[0])
             setpendingTasks(res.data.data[0].pendingTasks)
         })
-    },[params.id])
-
-    const Sorry = () =>{
-        alert('I am working on it , thanks for your patience')
-    }
+    },[params.id,individual])
 
     const handleID = async () =>{
     await axios.put(`https://taskmanagementtodo.herokuapp.com/api/users/${params.id}`
@@ -67,6 +62,7 @@ console.log(typeof(taskId))
 
 return (
     <>
+    
     <Dialog
     open={add}
     onClose={()=>setadd(false)}
@@ -103,9 +99,9 @@ return (
 
     <Box
     sx={{
-        height: 890,
-        width: "99.2%",
-        marginTop:'5.5%',
+        height: 600,
+        // width: "99.2%",
+        marginTop:'10%',
         // border:'2px solid red',
         display:'grid',
         justifyContent:'center',
@@ -116,8 +112,8 @@ return (
         <Box
         
         sx={{
-            height:800,
-            width:1000,
+            height:600,
+            // width:1000,
             // border:'2px solid green',
             display:'grid',
             
@@ -126,35 +122,35 @@ return (
         }}>
             <Box
             sx={{
-                width:800,
+                width:400,
                 // border:"2px solid yellow",
                 display:'grid',
                 gridTemplateRows:'30% 1fr',
                 justifyContent:'center',
                 // placeItems:"center",
-                height:800,
+                height:600,
 
             }}> 
             <Box
             
             sx={{
                 height:150,
-                width:500,
+                width:300,
+                // marginLeft:'%',
                 marginTop:'8%',
-                marginLeft:'8%',
                 // border:"2px solid brown",
                 display:"flex",
                 flexDirection:"column",
                 justifyContent:'center',
+                background:'white',
+                opacity:0.85,
+                marginLeft:'2%'
                 // alignItems:'center'
-                background:'transparent',
-                backdropFilter:'blur(20px)',
-                opacity:0.9
 
             }}>
 
             <Typography
-            variant='h6'
+            variant='p'
             component='div'
             sx={{
                 // border:"2px solid red",
@@ -174,11 +170,11 @@ return (
                 
             }}
             >
-                Email <span> : </span>
+                email <span> : </span>
                 {individual.email}
             </Typography>
             <Typography
-            variant='h6'
+            variant='p'
             component='div'
             sx={{
                 // border:"2px solid red",
@@ -194,48 +190,34 @@ return (
                 display:'flex',
                 alignItems:'center',
                 justifyContent:"center",
-                gap:'2px',
                 
             }}>
 
-            {/* <Button
-            sx={{
-                backgroundColor:'#92D293'
-            }}
-            onClick={Sorry}
-            >EDIT</Button> */}
+            {/* <Button>EDIT</Button> */}
             <Button
-            sx={{
-                backgroundColor:'#92D293'
-            }}
+            size='small'
             onClick={(e)=>{
                 // {handleID()}
                 // {setTaskId(individual._id)}
                 {setadd(true)}
-
-        
             }}
             
             >Add-Task</Button>
-            {/* <Button
-            sx={{
-                backgroundColor:'#92D293'
-            }}
-            onClick={Sorry}
-            >EDIT</Button> */}
+            {/* <Button>EDIT</Button> */}
             </Box>
                 </Box>
                 <Box
                 sx={{
                     // border:'2px solid pink',
-                    height:450,
-                    width:600,
+                    // height:450,
+                    width:300,
                     marginTop:'8%',
-                    // paddingLeft:'50%',
+                    paddingLeft:'6%',
                     display:'grid',
-                    gridTemplateColumns:'repeat(2,1fr)',
-                    marginLeft:'8%'
+                    gridTemplateColumns:'1fr',
+                    marginLeft:'2%',
                     // justifyContent:'center'
+                    alignitems:'center'
 
                 }}>
                     {/* <Typography
@@ -253,11 +235,11 @@ return (
                                 
                                 sx={{
                                     // border:'2px solid greenyellow',
-                                    marginTop:'2%',
+                                    marginTop:'4%',
                                     marginLeft:'9%',
-                                    width:250,
+                                    width:230,
                                     height:200,
-                                    opacity:0.8
+                                    opacity:0.9
                                     
                                 }}>
                                     <CardMedia
@@ -304,14 +286,4 @@ return (
 
 }
 
-export default UserDetails
-
-{/* <h1>{ `EMAIL: ${individual.email}  `}</h1>
-            <h1>PendingTasks :</h1>
-            {
-                tasks.map((item)=>{
-                    return <NavLink }><h1>{item}</h1></NavLink>
-                })
-            }
-            
-            <h1>{ individual.dateCreated }</h1> */}
+export default UserModetail

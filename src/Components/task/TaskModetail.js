@@ -7,7 +7,7 @@ import { Button,Modal, Typography,Dialog,DialogActions,DialogContent,
   TextField, 
   Checkbox } from "@mui/material";
 
-const TaskDetails = () => {
+const TaskMoDetails = () => {
     const[tasks,setTasks]=useState([])
     const params = useParams()
     const [user,setUser] = useState()
@@ -30,8 +30,8 @@ const TaskDetails = () => {
     },[params.id])
 
     const taskDelete = () =>{
+      // axios.delete(`https://taskmanagementtodo.herokuapp.com/api/tasks/${params.id}`)
       axios.delete(`https://taskmanagementtodo.herokuapp.com/api/tasks/${params.id}`)
-      // axios.delete(`http://localhost:9999/api/tasks/${params.id}`)
       .then((res)=>{
         alert(res.data.message)
       })
@@ -48,13 +48,12 @@ const TaskDetails = () => {
     const handleSubmit = (e) => {
       e.preventDefault();
       e.target.reset();
-      // console.log(edit)
+      console.log(edit)
     };
   
     const updateTask = async () => {
       // await axios.patch(`http://localhost:9999/api/tasks/${taskId}`,{
         await axios.patch(`https://taskmanagementtodo.herokuapp.com/api/tasks/${taskId}`,{
-
         "name":edit.name,
         "description": edit.description,
         "deadline": edit.deadline,
@@ -78,7 +77,7 @@ const TaskDetails = () => {
     // console.log(status)
   return (
     <>
-     <Dialog
+    <Dialog
         open={warn}
         onClose={handleClose}
         >
@@ -99,8 +98,6 @@ const TaskDetails = () => {
           </Button>
         </DialogActions>
         </Dialog>
-
-        
         <Modal open={open} onClose={() => setOpen(false)}>
           <Box
             sx={{
@@ -221,21 +218,19 @@ const TaskDetails = () => {
             </Typography>
           </Box>
         </Modal>
-
-        {/* <Button>Completed Task</Button> */}
     <Box
     sx={{
       // marginTop:'7'
-      margin:'7%',
-      height:770,
+      margin:'15%',
+      height:800,
       display:'grid',
       justifyContent:'center',
       alignItems:'center',
-      border:' 2px solid yellow'
+    //   border:' 2px solid yellow'
 
     }}>
       <Typography
-      variant="h3"
+      variant="h6"
       component={'div'}
       sx={{
         // border:'2px solid red',
@@ -246,7 +241,7 @@ const TaskDetails = () => {
       {` Taskname: ${tasks.name}`}
       </Typography>
       <Typography
-      variant="h6"
+      variant="p"
       component={'div'}
       sx={{
         // border:'2px solid red',
@@ -263,7 +258,7 @@ const TaskDetails = () => {
         gap:4
       }}>
         <Typography
-        variant="h4"
+        variant="p"
         component={'div'}
         sx={{
           // border:'2px solid red',
@@ -273,10 +268,10 @@ const TaskDetails = () => {
         {`Status : ${status}`}
         </Typography>
         <Typography
-        variant="h6"
+        variant="p"
         component='div'
         sx={{
-          width:400
+          width:250
         }}
         >
           
@@ -286,7 +281,7 @@ const TaskDetails = () => {
 
         </Typography>
         <Typography
-        variant="h4"
+        variant="p"
         component={'div'}
         sx={{
           // border:'2px solid red',
@@ -296,7 +291,7 @@ const TaskDetails = () => {
         {`Deadline : ${tasks.deadline}`}
         </Typography>
         <Typography
-        variant="h4"
+        variant="p"
         component={'div'}
         sx={{
           // border:'2px solid red',
@@ -306,7 +301,7 @@ const TaskDetails = () => {
             {`Assigned-User : ${tasks.assignedUser}`}
         </Typography>
         <Typography
-        variant="h4"
+        variant="p"
         component={'div'}
         sx={{
           // border:'2px solid red',
@@ -355,26 +350,6 @@ const TaskDetails = () => {
           {/* <Button size="small"></Button> */}
         </Box>
         </Box>
-          
-
-
-        
-        
-        
-        
-
-
-
-
-
-
-
-      
-
-
-
-
-    {/* <p></p> */}
     
     </Box>
     </>
@@ -382,4 +357,4 @@ const TaskDetails = () => {
   )
 }
 
-export default TaskDetails
+export default TaskMoDetails
