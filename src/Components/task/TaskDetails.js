@@ -11,6 +11,7 @@ const TaskDetails = () => {
     const[tasks,setTasks]=useState([])
     const params = useParams()
     const [user,setUser] = useState()
+    const [update,setUpdate] = useState()
     const [warn, setWarn] = useState(false);
     const [open, setOpen] = useState(false);
     const [taskId, setTaskid] = useState();
@@ -23,17 +24,18 @@ const TaskDetails = () => {
 
     useEffect(()=>{
         axios.get(`https://taskmanagementtodo.herokuapp.com/api/tasks/${params.id}`)
-        .then((res)=>{
+              .then((res)=>{
             // console.log(res.data.results)
-            setTasks(res.data.results)
+              setTasks(res.data.results)
         })
-    },[params.id])
+    },[params.id,update])
 
     const taskDelete = () =>{
       axios.delete(`https://taskmanagementtodo.herokuapp.com/api/tasks/${params.id}`)
       // axios.delete(`http://localhost:9999/api/tasks/${params.id}`)
       .then((res)=>{
         alert(res.data.message)
+        setUpdate(res.data.data)
       })
 
       // alert("hello")
@@ -62,6 +64,7 @@ const TaskDetails = () => {
 
       }).then((res) => {
         alert(res.data.message);
+        setUpdate(res.data.data)
       });
     };
 
@@ -78,7 +81,7 @@ const TaskDetails = () => {
     // console.log(status)
   return (
     <>
-     <Dialog
+    <Dialog
         open={warn}
         onClose={handleClose}
         >

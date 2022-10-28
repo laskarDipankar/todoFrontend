@@ -17,10 +17,10 @@ import {
   DialogActions,
 
 } from "@mui/material";
-import { bgcolor, display } from "@mui/system";
+// import { bgcolor, display } from "@mui/system";
 import Pagination from "../Pagination/Pagination";
 import AddUser from "./AddUser";
-import * as React from "react";
+// import * as React from "react";
 import u1 from '../../Img/user/u1.svg'
 import u2 from '../../Img/user/u2.svg'
 import u3 from '../../Img/user/u3.svg'
@@ -30,6 +30,8 @@ import u6 from '../../Img/user/u6.svg'
 import u7 from '../../Img/user/u7.svg'
 import u8 from '../../Img/user/u8.svg'
 import u9 from '../../Img/user/u9.svg'
+// import { set } from "mongoose";
+// import bg from '../../Img/bg.jpg'
 
 const imgList = [
   {img:u1},{img:u2},{img:u3},{img:u4},{img:u5},{img:u6},{img:u7},{img:u8},{img:u9}];
@@ -43,6 +45,7 @@ const UserGallery = () => {
   const [page, setpage] = useState(0);
   const [warn, setWarn] = useState(false);
   const [imgUser,setimguser] = useState([]);
+  const [update,setupdate] = useState()
   const [edit,setEdit]=useState({
     name:"",
     email:""
@@ -66,20 +69,22 @@ const UserGallery = () => {
         // console.log(res.data.Data.length);
         setimguser(imgList.concat(res.data.Data))
       });
-  }, [page,state]);
+  }, [page,update,length]);
 
   const UserDelete = async () => {
     await axios
       .delete(`https://taskmanagementtodo.herokuapp.com/api/users/${user.toString()}`)
       .then((res) => {
+        setupdate(res.data.data)
         alert(res.data.message);
-        window.reload(true)
+        // window.reload(true)
 
       });
 
     console.log(user);
   };
 
+  // console.log(update)
 
 
   const getData = (data) => {
@@ -119,12 +124,20 @@ const UserUpdate = async () => {
       email:edit.email
     })
     .then((res) => {
-      alert(res.data.message);
+      // alert(res.data.message);
+      setupdate(res.data.message)
     })
   }
 
   console.log(user);
 };
+
+
+console.log(length)
+const getUpdate = (data) =>{
+  setlength(data)
+  console.log(length)
+}
 
 
   return (
@@ -191,7 +204,7 @@ const UserUpdate = async () => {
                   flexDirection:'column',
                   gap:2,
                   justifyContent:'center',
-                  alignItems:'center'
+                  alignItems:'center',
                 }}>
                 <Box
                 sx={{
@@ -259,15 +272,26 @@ const UserUpdate = async () => {
       {/* ///////modal////////////////////////////////////// */}
 
 
-      <AddUser />
+      <AddUser  length={length} getUpdate={getUpdate} />
       <Pagination getData={getData} />
       <Box
       sx={{
         display:'flex',
-        justifyContent:'center'
+        justifyContent:'center',
+      //   backgroundImage: `url(${bg1})`,
+      // backgroundSize: "contain",
+      // backgroundRepeat: "no-repeat",
+      // backgroundPosition: "center center",
+      // backgroundAttachment: "fixed",
       }}>
 
-      <Button>Total Users: {length}</Button>
+      <Button
+      
+      sx={{
+        color:'red',
+        fontWeight:200
+      }}
+      >Total Users: {length}</Button>
       </Box>
       <Box
       sx={{
@@ -315,7 +339,9 @@ const UserUpdate = async () => {
                     // border:'2px 2px solid blue',
                     display:'grid',
                     placeItems:'center',
+                    // background:'rgba(255,255,255,0.8)',
                     background:'rgba(255,255,255,0.5)',
+
                     backdropFilter:'blur(20px)',
                     opacity:0.9
                 }}>
@@ -338,6 +364,11 @@ const UserUpdate = async () => {
                     <CardActions>
                     <Button size="small"
 
+                    variant="outlined"
+                    sx={{
+                      color:'darkblue'
+                    }}
+
                       onClick={(e) => {
                         {
                           UserEdit();
@@ -356,9 +387,19 @@ const UserUpdate = async () => {
                         color: isActive ? 'greenyellow' : 'white' }
                         ,{textDecoration:'none'})}
                     >
-                        <Button size="small">User-Detail</Button>
+                        <Button 
+                          sx={{
+                            color:'darkblue'
+                          }}
+                        variant="outlined"
+                        size="small">User-Detail</Button>
                     </NavLink>
                     <Button size="small"
+
+                    sx={{
+                      color:'darkblue'
+                    }}
+                    variant="outlined"
                      onClick={(e) => {
                       {
                         handleClickOpen()
