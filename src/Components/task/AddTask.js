@@ -9,7 +9,7 @@ const AddTask = (props) => {
   const [input, setInput] = useState({
     name: "",
     description: "",
-    deadline: null,
+    deadline: "",
   });
   const handleChange = (e) => {
     setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -25,26 +25,21 @@ const AddTask = (props) => {
     props.getUpdatedata(data);
   };
 
+  // console.log(input);
+
   const saveToDb = () => {
-    if (input.deadline == null && input.name == "") {
-      alert("you have left field empty");
-    } else {
-      axios
-        .post("https://taskmanagementtodo.herokuapp.com/api/tasks", {
-          name: input.name,
-          description: input.description,
-          deadline: input.deadline,
-        })
-        .then((res) => {
-          alert(res.data.message);
-          updateData(res.data.message);
-          console.log(res.data.message);
-        })
-        .catch((err) => {
-          // console.log(res.data.message)
-          alert(err.message);
-        });
-    }
+    axios
+      // .post("https://taskmanagementtodo.herokuapp.com/api/tasks", {
+      .post("http://localhost:1999/api/tasks", {
+        name: input.name,
+        description: input.description,
+        deadline: input.deadline,
+      })
+      .then((res) => {
+        alert(res.data.message);
+        updateData(res.data.message);
+        console.log(res.data.message);
+      });
   };
 
   var createUser = () => {
@@ -108,7 +103,7 @@ const AddTask = (props) => {
             </Box>
             <Box>
               <TextField
-                name="dealine"
+                name="deadline"
                 onChange={handleChange}
                 placeholder="Enter description"
                 type="date"

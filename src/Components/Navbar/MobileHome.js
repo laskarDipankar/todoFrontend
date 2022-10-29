@@ -4,23 +4,12 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-// import Button from "@mui/material/Button";
+
 import img from "../../Img/man.svg";
-// import RuleIcon from "@mui/icons-material/Rule";
-// import winner from "../../Img/winner.svg";
-// import gif from "../../Img/check.gif";
-// import SearchIcon from "@mui/icons-material/Search";
-// import PersonAddAltIcon from "@mui/icons-material/PersonAddAlt";
-// import SettingsIcon from "@mui/icons-material/Settings";
-// import gt from "../../Img/gt.jpg";
+
 import tate from "../../Img/1.jpg";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import SportsVolleyballIcon from "@mui/icons-material/SportsVolleyball";
-// import welcome from "../../Img/welcome.jpg";
-// import male1 from '../../Img/male1.gif'
-// import f1 from '../../Img/f1.gif'
-// import f2 from '../../Img/f2.gif'
-// import male2 from '../../Img/male2.gif'
 import LaptopIcon from "@mui/icons-material/Laptop";
 
 const MobileHome = () => {
@@ -44,12 +33,10 @@ const MobileHome = () => {
             margin: "3%",
             // backgroundImage: `url(${tate})`,
             backgroundSize: "cover",
-            // backgroundRepeat: "no-repeat",
+
             backgroundPosition: "center center",
             backgroundAttachment: "fixed",
             backdropFilter: "blur(20px)",
-            // height:300,
-            // width:600
           }}
         >
           <Box
@@ -82,8 +69,6 @@ const MobileHome = () => {
 
             <Box
               sx={{
-                // bgcolor: "#BDD8CE ",
-                // marginBottom: "2%",
                 width: 350,
                 height: 450,
 
@@ -158,7 +143,7 @@ const MobileHome = () => {
                   }}
                 >
                   <CardContent>
-                    <img className="gif" src={gif}></img>
+                    {/* <img className="gif" src={gif}></img> */}
                     <Typography gutterBottom variant="span" component="div">
                       GO SHOPPING
                       <Divider variant="middle" flexItem />
@@ -183,7 +168,7 @@ const MobileHome = () => {
                   }}
                 >
                   <CardContent>
-                    <img className="gif" src={gif}></img>
+                    {/* <img className="gif" src={gif}></img> */}
                     <Typography gutterBottom variant="span" component="div">
                       Volleyball
                       <Divider variant="middle" flexItem />
@@ -208,7 +193,7 @@ const MobileHome = () => {
                   }}
                 >
                   <CardContent>
-                    <img className="gif" src={gif}></img>
+                    {/* <img className="gif" src={gif}></img> */}
                     <Typography gutterBottom variant="span" component="div">
                       Ecomm-Webiste
                       <Divider variant="middle" flexItem />
@@ -328,7 +313,7 @@ const MobileHome = () => {
                   display: "flex",
                   alignItems: "center",
                   color: "black",
-                  // justifyContent:'center',
+                  justifyContent: "center",
                   boxShadow: "2px 2px 6px 2px grey",
                   "&:hover": {
                     boxShadow: "5px 5px 10px 5px #809fff",
@@ -336,7 +321,7 @@ const MobileHome = () => {
                   },
                 }}
               >
-                <img className="gif1" src={f2}></img>
+                {/* <img className="gif1" src={f2}></img> */}
                 Flexible, fast, and modern design
               </Typography>
               <Typography
@@ -350,7 +335,7 @@ const MobileHome = () => {
                   alignItems: "center",
                   fontSize: "12px",
 
-                  // justifyContent:'center',
+                  justifyContent: "center",
                   marginRight: "5%",
                   boxShadow: "2px 2px 6px 2px grey",
                   "&:hover": {
@@ -359,7 +344,7 @@ const MobileHome = () => {
                   },
                 }}
               >
-                <img className="gif1" src={male2} />
+                {/* <img className="gif1" src={male2} /> */}
                 With projects, labels and priorities, you can tailor toDo to
                 your personal workflow
               </Typography>
@@ -374,7 +359,7 @@ const MobileHome = () => {
                   display: "flex",
                   alignItems: "center",
                   fontSize: "12px",
-                  // justifyContent:'center',
+                  justifyContent: "center",
                   boxShadow: "2px 2px 6px 2px grey",
                   "&:hover": {
                     boxShadow: "5px 5px 10px 5px #809fff",
@@ -396,7 +381,7 @@ const MobileHome = () => {
                   display: "flex",
                   alignItems: "center",
                   fontSize: "13px",
-                  // justifyContent:'center',
+                  justifyContent: "center",
                   marginRight: "5%",
                   boxShadow: "2px 2px 6px 2px grey",
                   "&:hover": {
@@ -418,7 +403,7 @@ const MobileHome = () => {
                   marginTop: "3%",
                   display: "flex",
                   alignItems: "center",
-                  // justifyContent:'center',
+                  justifyContent: "center",
                   fontSize: "13px",
                   marginLeft: "5%",
                   boxShadow: "2px 2px 6px 2px grey",
@@ -428,7 +413,9 @@ const MobileHome = () => {
                   },
                 }}
               >
-                <img className="gif1" src={f2}></img>i work for 48hrs in 24hrs.
+                {/* <img className="gif1" src={f2}></img>
+                 */}
+                i work for 48hrs in 24hrs.
               </Typography>
             </Box>
           </Box>
