@@ -104,10 +104,9 @@ const MobileHome = () => {
                   borderRadius: "12px",
                   boxShadow: "5px 5px 10px 5px grey",
                   opacity: 0.9,
-                  // "&:hover": {
-                  //   boxShadow: "5px 5px 10px 5px yellowgreen",
-
-                  // },
+                  "&:hover": {
+                    boxShadow: "5px 5px 10px 5px yellowgreen",
+                  },
 
                   // height:300
                   // marginTop:'10%'
@@ -150,9 +149,9 @@ const MobileHome = () => {
                     borderRadius: "12px",
                     opacity: 0.9,
                     boxShadow: "5px 5px 10px 5px grey",
-                    // "&:hover": {
-                    //   boxShadow: "5px 5px 10px 5px yellowgreen",
-                    // },
+                    "&:hover": {
+                      boxShadow: "5px 5px 10px 5px yellowgreen",
+                    },
 
                     // height:300
                     // marginTop:'10%'
@@ -175,9 +174,9 @@ const MobileHome = () => {
                     borderRadius: "12px",
                     opacity: 0.9,
                     boxShadow: "5px 5px 10px 5px grey",
-                    // "&:hover": {
-                    //   boxShadow: "5px 5px 10px 5px yellowgreen",
-                    // },
+                    "&:hover": {
+                      boxShadow: "5px 5px 10px 5px yellowgreen",
+                    },
 
                     // height:300
                     // marginTop:'10%'
@@ -200,9 +199,9 @@ const MobileHome = () => {
                     borderRadius: "12px",
                     opacity: 0.9,
                     boxShadow: "5px 5px 10px 5px grey",
-                    // "&:hover": {
-                    //   boxShadow: "5px 5px 10px 5px yellowgreen ",
-                    // },
+                    "&:hover": {
+                      boxShadow: "5px 5px 10px 5px yellowgreen ",
+                    },
 
                     // height:300
                     // marginTop:'10%'
@@ -233,10 +232,9 @@ const MobileHome = () => {
                 // marginTop:'%',
                 borderRadius: "4%",
                 boxShadow: "3px 3px 6px 3px black",
-                // "&:hover": {
-                //   boxShadow: "5px 3px 6px 3px #809fff",
-
-                // }
+                "&:hover": {
+                  boxShadow: "5px 3px 6px 3px #809fff",
+                },
               }}
             >
               <Typography
@@ -292,10 +290,9 @@ const MobileHome = () => {
                 // border: "3px solid yellowgreen",
                 borderRadius: "10%",
                 boxShadow: "5px 5px 10px 5px grey",
-                // "&:hover": {
-                //   boxShadow: "2px 2px 6px 2px #809fff",
-
-                // }
+                "&:hover": {
+                  boxShadow: "2px 2px 6px 2px #809fff",
+                },
                 // marginLeft: "5%",
               }}
             >
@@ -311,10 +308,10 @@ const MobileHome = () => {
                   justifyContent: "center",
                   fontSize: "20px",
                   boxShadow: "5px 5px 10px 5px grey",
-                  // "&:hover": {
-                  //   boxShadow: "2px 2px 6px 2px #809fff",
-                  //   bgcolor:'white'
-                  // },
+                  "&:hover": {
+                    boxShadow: "2px 2px 6px 2px #809fff",
+                    bgcolor: "white",
+                  },
                 }}
               >
                 How our users feel about us !!
@@ -333,10 +330,10 @@ const MobileHome = () => {
                   color: "black",
                   // justifyContent:'center',
                   boxShadow: "2px 2px 6px 2px grey",
-                  // "&:hover": {
-                  //   boxShadow: "5px 5px 10px 5px #809fff",
-                  //   bgcolor:'white'
-                  // },
+                  "&:hover": {
+                    boxShadow: "5px 5px 10px 5px #809fff",
+                    bgcolor: "white",
+                  },
                 }}
               >
                 {/* <img className="gif1" src={f2}></img> */}
@@ -356,10 +353,10 @@ const MobileHome = () => {
                   // justifyContent:'center',
                   marginRight: "5%",
                   boxShadow: "2px 2px 6px 2px grey",
-                  // "&:hover": {
-                  //   boxShadow: "5px 5px 10px 5px #809fff",
-                  //   bgcolor:'white'
-                  // },
+                  "&:hover": {
+                    boxShadow: "5px 5px 10px 5px #809fff",
+                    bgcolor: "white",
+                  },
                 }}
               >
                 {/* <img className="gif1" src={male2}/> */}
@@ -379,10 +376,10 @@ const MobileHome = () => {
                   fontSize: "12px",
                   // justifyContent:'center',
                   boxShadow: "2px 2px 6px 2px grey",
-                  // "&:hover": {
-                  //   boxShadow: "5px 5px 10px 5px #809fff",
-                  //   bgcolor:'white'
-                  // },
+                  "&:hover": {
+                    boxShadow: "5px 5px 10px 5px #809fff",
+                    bgcolor: "white",
+                  },
                 }}
               >
                 {/* <img className="gif1" src={f1}></img> */}
@@ -402,10 +399,10 @@ const MobileHome = () => {
                   // justifyContent:'center',
                   marginRight: "5%",
                   boxShadow: "2px 2px 6px 2px grey",
-                  // "&:hover": {
-                  //   boxShadow: "5px 5px 10px 5px #809fff",
-                  //   bgcolor:'white'
-                  // },
+                  "&:hover": {
+                    boxShadow: "5px 5px 10px 5px #809fff",
+                    bgcolor: "white",
+                  },
                 }}
               >
                 {/* <img className="gif1" src={male1}></img> */}I have become
@@ -425,10 +422,10 @@ const MobileHome = () => {
                   fontSize: "13px",
                   marginLeft: "5%",
                   boxShadow: "2px 2px 6px 2px grey",
-                  // "&:hover": {
-                  //   boxShadow: "5px 5px 10px 5px #809fff",
-                  //   bgcolor:'white'
-                  // },
+                  "&:hover": {
+                    boxShadow: "5px 5px 10px 5px #809fff",
+                    bgcolor: "white",
+                  },
                 }}
               >
                 {/* <img className="gif1" src={f2}></img> */}i work for 48hrs in
