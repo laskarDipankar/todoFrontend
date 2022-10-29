@@ -25,12 +25,12 @@ const AddTask = (props) => {
     props.getUpdatedata(data);
   };
 
-  // console.log(input);
+  console.log(input);
 
-  const saveToDb = () => {
+  const saveToDb = (e) => {
     axios
-      .post("https://taskmanagementtodo.herokuapp.com/api/tasks", {
-        // .post("http://localhost:1999/api/tasks", {
+      // .post("https://taskmanagementtodo.herokuapp.com/api/tasks", {
+      .post("http://localhost:1999/api/tasks", {
         name: input.name,
         description: input.description,
         deadline: input.deadline,
@@ -40,6 +40,7 @@ const AddTask = (props) => {
         updateData(res.data.message);
         console.log(res.data.message);
       });
+    setInput((input.deadline = ""));
   };
 
   var createUser = () => {
