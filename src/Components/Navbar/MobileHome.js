@@ -158,7 +158,7 @@ const MobileHome = () => {
                   }}
                 >
                   <CardContent>
-                    {/* <img className="gif" src={gif}></img> */}
+                    <img className="gif" src={gif}></img>
                     <Typography gutterBottom variant="span" component="div">
                       GO SHOPPING
                       <Divider variant="middle" flexItem />
@@ -183,7 +183,7 @@ const MobileHome = () => {
                   }}
                 >
                   <CardContent>
-                    {/* <img className="gif" src={gif}></img> */}
+                    <img className="gif" src={gif}></img>
                     <Typography gutterBottom variant="span" component="div">
                       Volleyball
                       <Divider variant="middle" flexItem />
@@ -208,7 +208,7 @@ const MobileHome = () => {
                   }}
                 >
                   <CardContent>
-                    {/* <img className="gif" src={gif}></img> */}
+                    <img className="gif" src={gif}></img>
                     <Typography gutterBottom variant="span" component="div">
                       Ecomm-Webiste
                       <Divider variant="middle" flexItem />
@@ -336,7 +336,7 @@ const MobileHome = () => {
                   },
                 }}
               >
-                {/* <img className="gif1" src={f2}></img> */}
+                <img className="gif1" src={f2}></img>
                 Flexible, fast, and modern design
               </Typography>
               <Typography
@@ -359,7 +359,7 @@ const MobileHome = () => {
                   },
                 }}
               >
-                {/* <img className="gif1" src={male2}/> */}
+                <img className="gif1" src={male2} />
                 With projects, labels and priorities, you can tailor toDo to
                 your personal workflow
               </Typography>
@@ -428,8 +428,7 @@ const MobileHome = () => {
                   },
                 }}
               >
-                {/* <img className="gif1" src={f2}></img> */}i work for 48hrs in
-                24hrs.
+                <img className="gif1" src={f2}></img>i work for 48hrs in 24hrs.
               </Typography>
             </Box>
           </Box>
