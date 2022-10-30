@@ -98,7 +98,7 @@ const UserList = () => {
         )
         .then((res) => {
           // alert(res.data.message);
-          setUpdate(res.data.data);
+          setUpdate(res.data.message);
           if (res.data.message != "") {
             setTimeout(() => {
               setcolor("2px solid orange");
