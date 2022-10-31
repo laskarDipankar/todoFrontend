@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useRecoilValue } from "recoil";
+import { apiState } from "../../Atoms/Atom";
 import {
   Box,
   Button,
@@ -13,25 +15,26 @@ import {
   DialogTitle,
   DialogContent,
   DialogActions,
-  fabClasses,
 } from "@mui/material";
-// import { bgcolor, display } from "@mui/system";
 import Pagination from "../Pagination/Pagination";
 import AddUser from "./AddUser";
 import EditIcon from "@mui/icons-material/Edit";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
+import Api from "../Api/Api";
 
 const UserList = () => {
+  const coilApi = useRecoilValue(apiState);
   const [state, setstate] = useState([]);
   const [page, setpage] = useState(0);
   const [user, setUser] = useState();
   const [update, setUpdate] = useState();
   const [open, setOpen] = useState(false);
   const [warn, setWarn] = useState(false);
-  const [sortdata, setdata] = useState();
+  const [context, setdata] = useState();
   const [flag, setflag] = useState();
   const [loading, setloading] = useState(false);
   const [color, setcolor] = useState("2px solid orange");
+  const [api, setApi] = useState(coilApi);
   const [edit, setEdit] = useState({
     name: "",
     email: "",
@@ -44,44 +47,48 @@ const UserList = () => {
     setTimeout(() => {
       axios
         .get(
-          `https://taskmanagementtodo.herokuapp.com/api/users?skip=${page}&limit=9&sort={'dateCreated':-1}`
+          `${api.toString()}?skip=${page}&limit=9&sort={'dateCreated':-1}`
           // `http://localhost:9999/api/users?skip=${page}&limit=9&sort={'dateCreated':-1}`
         )
         .then((res) => {
-          setstate(res.data.Data);
+          setstate(res.data.data);
           setloading(false);
           // console.log(res.data.Data);
         });
-    }, 1000);
+    }, 5000);
 
     // var status = document.querySelectorAll('.status')
 
     // setloading(false);
-  }, [page, update]);
+  }, [page, update, api]);
+
+  console.log(coilApi, "recoil");
 
   const getData = (data) => {
     setpage(data);
   };
   const UserDelete = async () => {
-    await axios
-      .delete(
-        `https://taskmanagementtodo.herokuapp.com/api/users/${user.toString()}`
-      )
-      .then((res) => {
-        // alert(
-        //   `Deleted user ${res.data.message},freed task ${res.data.Taskfreed}`
-        //   );
-        setUpdate(res.data.data);
+    await axios.delete(`${api}/${user.toString()}`).then((res) => {
+      // alert(
+      //   `Deleted user ${res.data.message},freed task ${res.data.Taskfreed}`
+      //   );
+      setUpdate(res.data.data);
 
-        if (res.data.message != "") {
-          setTimeout(() => {
-            setcolor("2px solid orange");
-          }, 1000);
-          setcolor("2px solid green");
-        }
-      });
+      if (res.data.message != "") {
+        setTimeout(() => {
+          setcolor("2px solid orange");
+        }, 1000);
+        setcolor("2px solid green");
+      }
+    });
 
     console.log(user);
+  };
+
+  const getApi = (data) => {
+    setApi(data);
+    console.log(data, "props");
+    console.log(api, "apidata");
   };
 
   const UserUpdate = async () => {
@@ -89,13 +96,10 @@ const UserList = () => {
       alert("All the fields are mandatory");
     } else {
       await axios
-        .put(
-          `https://taskmanagementtodo.herokuapp.com/api/users/${user.toString()}`,
-          {
-            name: edit.name,
-            email: edit.email,
-          }
-        )
+        .put(`${api}/${user.toString()}`, {
+          name: edit.name,
+          email: edit.email,
+        })
         .then((res) => {
           // alert(res.data.message);
           setUpdate(res.data.message);
@@ -254,24 +258,6 @@ const UserList = () => {
                         required
                       ></TextField>
                     </Box>
-                    {/* <Box>
-                      
-                      <TextField
-                        name="email"
-                        placeholder="Edit email"
-                        onChange={handleChange}
-                      ></TextField>
-                    </Box>
-                    <Box>
-                      
-                      <TextField
-                        name="email"
-                        placeholder="Edit email"
-                        onChange={handleChange}
-                      ></TextField>
-                    </Box> */}
-
-                    {/* <Button variant="contained" >save</Button> */}
                   </Box>
                   <Box
                     sx={{
@@ -291,7 +277,7 @@ const UserList = () => {
                         }
                       }}
                     >
-                      Submit !
+                      submit
                     </Button>
                     <Button
                       sx={{
@@ -307,7 +293,33 @@ const UserList = () => {
             </Typography>
           </Box>
         </Modal>
+
+        <Box
+          sx={{
+            diplay: "flex",
+            justifyContent: "center",
+            // alignItems: "center",
+            marginLeft: "44%",
+          }}
+        >
+          <Api getApi={getApi} />
+        </Box>
       </Box>
+
+      {/* <Link.Provider>
+        {(userAPI) => {
+          return (
+            <Typography
+              sx={{
+                fontWeight: "bolder",
+                color: "red",
+              }}
+            >
+              {userAPI}
+            </Typography>
+          );
+        }}
+      </Link.Provider> */}
 
       <AddUser getUpdate={getUpdate} />
       <Box

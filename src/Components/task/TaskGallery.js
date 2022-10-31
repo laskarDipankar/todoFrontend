@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import axios, { Axios } from "axios";
 // import { Outlet } from "react-router"
+import { useRecoilValue } from "recoil";
+import { apitask } from "../../Atoms/Atom";
 import {
   Box,
   Button,
@@ -17,12 +19,14 @@ import {
   List,
   ListItem,
 } from "@mui/material";
+import Api from "../Api/Api";
 import { NavLink } from "react-router-dom";
 import Pagination from "../Pagination/Pagination";
 import AddTask from "./AddTask";
 import MenuSort from "./Sorting/MenuSort";
 import TaskSort from "./Tasksort";
 const TaskGallery = () => {
+  const taskapi = useRecoilValue(apitask);
   const [flag, setflag] = useState();
   const [Tasks, setTask] = useState([]);
   const [page, setpage] = useState(0);
@@ -34,7 +38,7 @@ const TaskGallery = () => {
   const [data, setdata] = useState(`&where={"completed":false}`);
   const [ass, setass] = useState("Ascending");
   // const [completion,setcompletion] = useState(null)
-  // const [taskstatus,setstatus] = useState(false)
+  const [api, setApi] = useState(taskapi);
   const [edit, setEdit] = useState({
     name: "",
     description: "",
@@ -45,7 +49,7 @@ const TaskGallery = () => {
   useEffect(() => {
     axios
       .get(
-        `https://taskmanagementtodo.herokuapp.com/api/tasks?skip=${page}&${showby}&limit=9${data}`
+        `${api}?skip=${page}&${showby}&limit=9${data}`
 
         // `http://localhost:1999/api/tasks?skip=${page}&${showby}&limit=9${data}`
       )
@@ -53,7 +57,9 @@ const TaskGallery = () => {
         // console.log(res.data.data);
         setTask(res.data.data);
       });
-  }, [page, update, data, showby]);
+  }, [page, update, data, showby, api]);
+
+  console.log(taskapi);
 
   const getData = (data) => {
     setpage(data);
@@ -76,6 +82,11 @@ const TaskGallery = () => {
   };
   const showBY = (sdata) => {
     setshowBy(sdata);
+  };
+  const getApi = (data) => {
+    setApi(data);
+    console.log(data, "props");
+    console.log(api, "apidata");
   };
 
   const handleClickOpen = () => {
@@ -299,6 +310,16 @@ const TaskGallery = () => {
 
         {/* /////////////////////////////////////////////////////////////////////////////////////// */}
         <AddTask getUpdatedata={getUpdatedata} />
+        <Box
+          sx={{
+            diplay: "flex",
+            justifyContent: "center",
+            // alignItems: "center",
+            // marginLeft: "44%",
+          }}
+        >
+          <Api getApi={getApi} />
+        </Box>
         <Box
           sx={{
             display: "flex",

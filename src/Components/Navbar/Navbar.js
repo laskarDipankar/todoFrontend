@@ -22,7 +22,6 @@ import UserGallery from "../user/UserGallery";
 import UserRev from "./UserRev";
 import { Box, display } from "@mui/system";
 
-
 const Navbar = () => {
   const [value, setValue] = useState();
   return (
@@ -31,85 +30,114 @@ const Navbar = () => {
       <AppBar
         sx={{
           backgroundColor: "#92D293",
-          width:'80%',
-          display:'flex',
-          justifyContent:'center',
-          flexWrap:'wrap',
-          marginRight:'10%',
-          marginTop:'0.15%',
-          boxShadow:'2px 3px  5px greenyellow',
+          width: "80%",
+          display: "flex",
+          justifyContent: "center",
+          flexWrap: "wrap",
+          marginRight: "10%",
+          marginTop: "0.15%",
+          boxShadow: "2px 3px  5px greenyellow",
           // position:'relative'
-          
         }}
       >
         <Toolbar
-        sx={{
-          // width:'98%',
-          display:'flex',
-          justifyContent:'center',
-          flexWrap:'wrap'
-        }}>
-        <NavLink
-            to='/'
-            style={isActive => ({
-              color: isActive ? "green" : "yellowgreen"
-            },{textDecoration:'none'})}
-
-            >
-          <Typography
           sx={{
-            fontSize:30,
-            fontWeight:'bold',
-            color:'blueviolet'
+            // width:'98%',
+            display: "flex",
+            justifyContent: "center",
+            flexWrap: "wrap",
           }}
-          
-          >toDo</Typography>
+        >
+          <NavLink
+            to="/"
+            style={(isActive) => (
+              {
+                color: isActive ? "green" : "yellowgreen",
+              },
+              { textDecoration: "none" }
+            )}
+          >
+            <Typography
+              sx={{
+                fontSize: 30,
+                fontWeight: "bold",
+                color: "blueviolet",
+              }}
+            >
+              toDo
+            </Typography>
           </NavLink>
           <List
-          sx={{
-            display:'flex',
-            marginLeft:'auto'
-            // flexDirection:'row-reverse',
-            // justifyContent:'center'
-
-          }}
+            sx={{
+              display: "flex",
+              marginLeft: "auto",
+              // flexDirection:'row-reverse',
+              // justifyContent:'center'
+            }}
           >
-
             <NavLink
-            to='/users'
-            style={isActive => ({
-              color: isActive ? "green" : "yellowgreen"
-            },{textDecoration:'none'})}
-
+              to="/users"
+              style={(isActive) => (
+                {
+                  color: isActive ? "green" : "yellowgreen",
+                },
+                { textDecoration: "none" }
+              )}
             >
-            <ListItem>
+              <ListItem>
                 <ListItemIcon>
                   <SportsGymnasticsOutlinedIcon />
                   <ListItemText
-                  sx={{
-                    color:'blueviolet'
-                  }}
-                  primary="USERS" />
+                    sx={{
+                      color: "blueviolet",
+                    }}
+                    primary="USERS"
+                  />
                 </ListItemIcon>
-            </ListItem>
+              </ListItem>
             </NavLink>
             <NavLink
-            to='/tasks'
-            style={({ isActive }) => ({ 
-              color: isActive ? 'greenyellow' : 'white' },{textDecoration:'none'})}
-              
+              to="/tasks"
+              style={({ isActive }) => (
+                {
+                  color: isActive ? "greenyellow" : "white",
+                },
+                { textDecoration: "none" }
+              )}
             >
+              <ListItem>
+                <ListItemIcon>
+                  <TaskAltTwoToneIcon />
+                  <ListItemText
+                    sx={{
+                      color: "blueviolet",
+                    }}
+                    primary="TASKS"
+                  />
+                </ListItemIcon>
+              </ListItem>
+            </NavLink>
 
-            <ListItem>
-              <ListItemIcon>
-                <TaskAltTwoToneIcon />
-                <ListItemText 
-                sx={{
-                  color:'blueviolet'
-                }}
-                primary="TASKS" />
-              </ListItemIcon>
-            </ListItem>
+            <NavLink
+              to="/settings"
+              style={({ isActive }) => (
+                {
+                  color: isActive ? "greenyellow" : "white",
+                },
+                { textDecoration: "none" }
+              )}
+            >
+              <ListItem>
+                <ListItemIcon>
+                  <TaskAltTwoToneIcon />
+                  <ListItemText
+                    sx={{
+                      color: "blueviolet",
+                    }}
+                    primary="SETTINGS"
+                  />
+                </ListItemIcon>
+              </ListItem>
             </NavLink>
           </List>
         </Toolbar>
